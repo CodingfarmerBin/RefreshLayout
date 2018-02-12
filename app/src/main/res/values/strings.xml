@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RefreshLayout</string>
+    <string name="header_hint_refresh_normal">下拉可以刷新</string>
+    <string name="header_hint_refresh_ready">松开立即刷新</string>
+    <string name="header_hint_refresh_loading">正在刷新数据中&#8230;</string>
+    <string name="header_hint_refresh_time">最后更新时间：</string>
+</resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zqb.refreshlayout.MainActivity">
+
+    <com.zqb.refreshlayout.RefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10px"
+        android:paddingRight="200px">
+
+        <RelativeLayout
+            android:id="@+id/header_content"
+            android:layout_width="match_parent"
+            android:layout_height="150px">
+
+            <LinearLayout
+                android:id="@+id/header_text_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/header_hint_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/header_hint_refresh_loading"
+                    android:textSize="13sp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/header_hint_refresh_time"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/header_hint_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="无记录"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:paddingBottom="40px"
+            android:paddingTop="20px"
+            android:text="sfhsdkfh "/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:text="加载中...."
+            android:id="@+id/load_text_view"
+            app:center_horizontal="true"
+            android:layout_width="250px"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:paddingBottom="40px"
+            android:paddingTop="20px"/>
+    </com.zqb.refreshlayout.RefreshLayout>
+
+</android.support.constraint.ConstraintLayout>
