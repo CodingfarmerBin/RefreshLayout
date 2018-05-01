@@ -3,7 +3,7 @@ package com.zqb.refreshlayout;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +34,7 @@ public class RefreshLayout extends ViewGroup {
     private boolean isPull; //是否拖动中
     private int mCanScrollDistance=-1; //可拖动最远距离
     private boolean mCanLoadMore;//可否上拉加载
+    //private int mCanLoadMore;//可否上拉加载
 
 
     public RefreshLayout(Context context) {
@@ -49,11 +50,14 @@ public class RefreshLayout extends ViewGroup {
         mViewMarginTop= new HashMap<>();
         mViewMarginBottom= new HashMap<>();
         mScroller = new Scroller(context);
+        View headView = LayoutInflater.from(context).inflate(R.layout.item_refresh_head, this, false);
+        addView(headView,0);
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
         for (int i = 0; i < getChildCount(); i++) {
             //测量每一个子
             measureChild(getChildAt(i),widthMeasureSpec,heightMeasureSpec);
@@ -219,6 +223,9 @@ public class RefreshLayout extends ViewGroup {
      * 处理拖动 的高度计算和回调
      */
     private void dealMove(int round, MotionEvent event) {
+        if(mCanScrollDistance!=-1 && +Math.abs(mMoveHeight)>mCanScrollDistance/2){
+            round=round/2;
+        }
         mMoveHeight += round;
         if(mListener!=null) {
             if (Math.abs(mMoveHeight) > getChildAt(0).getHeight()) {

@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity  {
         mAdapter = new MyAdapter();
         mRecyclerView.setAdapter(mAdapter);
         mRefreshLayout.bindRecyclerView(mRecyclerView);
+        mRefreshLayout.canScrollDistance(1000);
         mRefreshLayout.setRefreshListener(new RefreshListener() {
             @Override
             void refresh() {
